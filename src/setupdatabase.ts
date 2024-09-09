@@ -1,16 +1,7 @@
-import { Pool } from 'pg';
+import pool from "./db";
 import dotenv from 'dotenv';
 
 dotenv.config();
-
-// Create a new Pool instance
-const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    port: parseInt(process.env.DB_PORT || '5432', 10),
-});
 
 // Function to execute a query
 async function query(text: string, params?: any[]): Promise<void> {

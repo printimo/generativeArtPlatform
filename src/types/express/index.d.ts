@@ -1,4 +1,4 @@
-import { User } from '../../models/userModel'; // Adjust the import path as needed
+import { User } from '../../models/userModel';
 
 declare namespace Express {
         export interface Request {
