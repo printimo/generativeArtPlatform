@@ -12,4 +12,4 @@ Create database called generativeArtPlatform</br>
 Run the following command to create the tables:</br>
 npx ts-node src/setupdatabase.ts</br>
 Run the following command to start the server:</br>
-npx ts-node src/main.ts</br>
+npx ts-node src/app.ts</br>
