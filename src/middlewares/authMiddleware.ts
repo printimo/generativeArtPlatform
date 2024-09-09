@@ -15,18 +15,16 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
         return;
     }
 
-    jwt.verify(token, process.env.JWT_SECRET!, (err, decoded: TokenPayload | undefined) => {
-        if (err) {
+    jwt.verify(token, process.env.JWT_SECRET!, (err,userToken: TokenPayload) => {
+        if (err || !userToken) {
             res.status(403).json({ error: 'Invalid token' });
             return;
         }
-        if (decoded) {
-            req.user = {
-                id: decoded.id,
-                email: decoded.email,
-                password: undefined
-            };
-        }
+        req.user = {
+            id: userToken.id,
+            email: userToken.email,
+            password: undefined
+        };
         next();
     });
 };
